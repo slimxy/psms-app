@@ -1,0 +1,378 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap'); */
+
+:root{
+  --color:#ffffff;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+#a{
+  text-decoration: none;
+  color: rgba(0, 0, 255, 0.925);
+}
+.sidebar a{text-decoration: none;}
+#link {text-decoration: none;}
+.navbar{
+    background:#0056D2;
+     /* #0a247a; */
+    color: white;
+    position: static;
+    top: 0;
+    z-index: 999;
+    margin-bottom: 30px;
+}
+ span {
+    color: crimson;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+}
+
+.lnks a {
+    color: white;
+    position: relative;
+}
+.lnks a::after{
+    position: absolute;
+    transition: all  0.3s ease;
+    content: " ";
+    background-color: red;
+    bottom: -5px;
+    left: 0;
+    height: 2px;
+    width: 0;
+}
+
+.lnks a:hover::after{
+    width: 100%;
+    transition: all  0.3s ease;
+
+}
+/* .body{
+position: relative;
+padding-top: 10%;
+height: 100vh; */
+
+/* } */
+.home{
+  position: relative;
+  padding-top: 60%;
+  margin-top: 60%;
+  min-height: 100vh;
+  overflow: hidden;
+
+  
+  }
+
+.homeText{
+  width: 50%;
+  height: 83vh;
+}
+/* .maintext{
+  max-width: 50%;
+  margin: 0px auto;
+  position: absolute;
+  top: 20%;
+  left: 7%;
+} */
+.txt h1{
+  width: 50%;
+  margin: 0px auto;
+  position: absolute;
+  top: 18%;
+  left: 11%;}
+
+  .txt2{
+    position: relative;
+    top: 2%;
+    left: 9%;
+}
+
+.myContainer{
+  display: flex;
+  justify-content: space-around;
+  overflow: hidden;
+  box-sizing: content-box;
+  height: 20px;
+  padding: 20px 0px;
+}
+.motto{
+  overflow: hidden;
+  margin-bottom: -100%;
+}
+
+.motto span{
+  display: block;
+  padding-left: 20px;
+  animation: scroll 15s infinite linear;
+}
+
+@keyframes scroll{
+  10%{
+      transform: translateY(-112%);
+  }
+  25%{
+      transform: translateY(-100%);
+  }
+  35%{
+      transform: translateY(-212%);
+  }
+  50%{
+      transform: translateY(-200%);
+  }
+  60%{
+      transform:translateY(-312%);
+  }
+  75%{
+      transform: translateY(-300%);
+  }
+  85%{
+      transform: translateY(-412%);
+  }
+  100%{
+      transform: translateY(-400%);
+  }
+}
+.slogan{
+  position: relative;
+  top: 40%;
+  left: 15%;
+}
+
+.bg{
+top:9%;
+left:50%;
+position: absolute;
+}
+.bg img{
+  display: none;
+  border-radius: 80%;
+}
+.heroes{
+padding-top: 2rem;
+
+}
+.myinfo{
+  position: relative;
+  top: -16%;
+  left: 10%;
+  width: 40%;
+  height: 32%;
+  padding: 30px;
+  background:#0056D2;
+  box-shadow: 1px 2px 12px #131f30 ;
+  border: 6px solid white;
+  color: aliceblue;
+  text-align: center;
+  border-radius: 60%;
+}
+.myinfo p{
+  font-size: 64px;
+}
+
+#heading{
+    margin:1rem;
+    padding-top: 3rem;
+    display: inline-block;
+    font-size: 3.5rem;
+    color:var(--color);
+    position: relative;
+    letter-spacing: .2rem;
+  }
+  
+  #heading::before, #heading::after{
+    content: '';
+    position: absolute;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-top:.4rem solid var(--color);
+    border-left:.4rem solid var(--color);
+  }
+  
+  #heading::before{
+    top:2.6rem;
+     left: -2rem;
+  }
+  
+  #heading::after{
+    bottom:-.6rem; right: -2rem;
+    transform: rotate(180deg);
+  }
+
+
+
+ .pic img {border-radius:60%;
+}
+.pic #homepix {border-radius: 40px;
+}
+.service, .about, .contact{
+  position: relative;
+  /* padding-top: 60%;
+  margin-top: 60%; */
+  min-height: 100vh;
+  overflow: hidden;
+
+  
+  }
+  .acontainer{
+    margin: 22px;
+    padding: 4px;
+  }
+  .serve .pic img, .contact .pic img{
+    position: relative;
+    top: 10%;
+    right: 5%;
+  }
+  .serviceGrid{
+    display: flex;
+  }
+.serviceInfo{
+  display: flex;
+  width: 620px;
+  border-radius: 25px;
+  box-shadow: 2px 2px 12px rgb(58, 5, 252);
+
+}
+.serviceInfo img{
+  width: 200px;
+  height: 200px;
+  border-radius:  50%;
+  margin-right: 15px;
+}
+  
+.sidebar {
+  position: absolute ;
+    height: 100vh;
+    width: 55px;
+    background-color:    rgb(9, 47, 116);
+    overflow: hidden;
+    transition: all 0.5s ease;
+    transition-delay: 0.1s;
+    top: 10%;
+    padding-top: 30px ;
+  }
+  
+  .sidebar.full{
+    width: 255px;
+  }
+  
+  .sidebar_item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0px;
+    cursor: pointer;
+    margin:0px 0px 10px 0px;
+  }
+  .sidebar_item:hover{
+    background-color:     crimson;
+  }
+  .sidebar_item p {
+    font-weight: bold;
+    font-size: 19px;
+    margin-top: 12px;
+    color: white;
+    margin-left: 21px;
+  }
+  .sidebar_item i {
+    font-size: 21px;
+    color: white;
+    margin-left: 15px;
+  }
+
+.mainContent{
+  position: absolute;
+  top: 15%;
+  left: 5%;
+  transition:all ease-out 0.9s;
+  transition-delay: 0.1s;
+  max-width: 1229px;
+  margin-bottom: 70px;
+
+}
+
+.mainContent.slide{
+  left: 200px;
+  max-width: 1029px;
+  transition:all ease-out 0.9s;
+  transition-delay: 0.1s;
+
+
+}
+.index .card-body{
+  height: 150px;;
+}
+
+.table{width: 300px;}
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+/* margin-top:223px; */
+    background: #0056D2;
+}
+footer p {
+    text-align: center;
+    color: white;
+    margin-top: 12px;
+}
+/* pagination */
+
+/* .pagination-links .page-link{
+
+} */
+.pagination-links .page-link::before{
+  font-size: 22px;
+  color: blue;
+}
+/* .pagination-links .page-link.next::before{
+
+}
+.pagination-links .page-link.prev::before{
+
+} */
+
+
+@media screen and (max-width: 1176px) {
+  .myinfo p{
+
+  font-size:50px;
+  margin-top: 13px;
+  }
+}
+@media screen and (max-width: 968px) {
+  .myinfo p{
+
+  font-size:40px;
+  margin-top: 23px;
+  }
+  .acontainer .atext{
+    font-size: 18px;
+  }
+  .contactInfo .textContainer{width: 700px;}
+}
+
+@media screen and (max-width: 850px) {
+ 
+  .acontainer .atext{
+    font-size: 15px;
+  }
+  .serviceGrid .serviceInfo{
+    display: grid;
+  }
+}
+
+@media screen and (max-width: 822px) {
+  .myinfo p{
+
+    font-size:37px;
+    margin-top: 23px;
+    }
+  .acontainer .atext{
+    font-size: 12px;
+  }
+  .serviceGrid {
+    display: grid;
+  }
+}
