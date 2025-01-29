@@ -79,17 +79,6 @@
 @enderror
 </div>
 
-<div class="  col-md-8 offset-md-2   ">
-    <label  class="form-label" for="sales">Price (&#8358)</label>
-   <div class="input-group"> <span class="input-group-text">&#8358</span>
-    <input type="text" class="form-control" id="sales" name='sales' require>
-</div>
-@error('sales')
-    <span class="invalid-feedback" role="alert">
-    <strong>{{ $message }}</strong>
-    </span>
-@enderror
-</div>
 <div class="col-md-8 offset-md-5 ">
     <button type="submit"  onclick="cal()" class="btn btn-primary"> submit</button>
 </div>
@@ -102,11 +91,14 @@
 
 <script>
  
-   function cal(){
+    function cal(){
         var open = document.getElementById('open').value;
         var close = document.getElementById('close').value;
-        var diffs = close - open;
+        var diffs;
+        if ( open < close){
+            diffs = close - open;
         document.getElementById('diffs').value = diffs;
+        }
 
 
 
