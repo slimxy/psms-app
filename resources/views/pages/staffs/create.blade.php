@@ -2,7 +2,6 @@
 @section("content")
 <div class="container my-5">
 <div class="  row justify-content-center">
-<marquee behavior="" direction="rtl"> <h3 class="text-secondary text-center ">Station A station:  {{Auth()->user()->state}}</h3> </marquee>
 
 <div class="col-md-9 offset-2 px-5">
             <div class="card shadow-lg">
@@ -30,7 +29,7 @@
 </div>
 <div class="col-md-4">
     <label  class="form-label text-danger" for="open">Opening Meter</label>
-    <input type="number" onInput="cal()" class="form-control text-danger" id="open"  name='open' require>
+    <input type="number" class="form-control text-danger" id="open"  name='open' required >
 @error('open')
     <span class="invalid-feedback" role="alert">
     <strong>{{ $message }}</strong>
@@ -39,7 +38,7 @@
 </div>
 <div class="col-md-2   ">
                  <label  class="form-label " for="meterId">Meter Id#</label>
-                 <select type="text" class="form-control col-5 " id="meterId"  name='meterId' require>
+                 <select type="text" class="form-control col-5 " id="meterId"  name='meterId' required>
         <option selected>Meter-#... </option>
         <option value='#1' >#1 </option>
         <option value='#2' >#2 </option>
@@ -60,7 +59,7 @@
 </div>
 <div class="col-md-6">
     <label  class="form-label" for="close">Closing Meter</label>
-    <input type="number" onInput="cal()" class="form-control" id="close"  name='close' require>
+    <input type="number"   class="form-control" id="close"  name='close' required onInput="cal()">
 @error('close')
     <span class="invalid-feedback" role="alert">
     <strong>{{ $message }}</strong>
@@ -87,19 +86,30 @@
 </div>
 </div>
 </div>
+<marquee behavior="" direction="rtl"> <h3 class="text-secondary text-center ">Station A station:  {{Auth()->user()->state}}</h3> </marquee>
+
 </div>
 
 <script>
  
     function cal(){
-        var open = document.getElementById('open').value;
-        var close = document.getElementById('close').value;
-        var diffs;
-        if ( open < close){
-            diffs = close - open;
-        document.getElementById('diffs').value = diffs;
-        }
+        // var open = document.getElementById('open').value;
+        // var close = document.getElementById('close').value;
+        // var diffs;
+     
+        //     diffs = close - open;
+        // document.getElementById('diffs').value = diffs;
+        
+        let openMeter = parseFloat(document.getElementById('open').value) || 0;
+        let closeMeter = parseFloat(document.getElementById('close').value) || 0;
 
+            if (closeMeter < openMeter){
+                alert("Closing meter must be greater than or equal to the opening meter.")
+                // document.getElementById('close').value = openMeter;
+                // closeMeter = openMeter;
+            }
+                let diffs = closeMeter - openMeter;
+                document.getElementById('diffs').value = diffs
 
 
 };

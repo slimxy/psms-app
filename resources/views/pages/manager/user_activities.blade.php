@@ -2,7 +2,6 @@
 @section("content")
 
 <div class="container m-4" >
-<marquee behavior="" direction="rtl"> <h3 class="text-secondary text-center ">{{Auth()->user()->station}}, {{Auth()->user()->state}} State</h3> </marquee>
 
   <div class="info"><h3 class="offset-4 pb-3 text-primary">Showing Activities of <span class="text-secondary">{{$user->name}}</span></h3> </div>
   <table class="table table-bordered  table-responsive p-5 offset-1">
@@ -43,6 +42,8 @@
 <!-- {{ $userActivities->links()}} -->
 
 </div>
+<marquee behavior="" direction="rtl"> <h3 class="text-secondary text-center ">{{Auth()->user()->station}}, {{Auth()->user()->state}} State</h3> </marquee>
+
   </div>
   
   @endsection

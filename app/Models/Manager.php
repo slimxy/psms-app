@@ -15,10 +15,11 @@ class Manager extends Model
         'submission_id',
         'opening',
         'closing',
+        'return',
+        'sales',
         'stock',
         'product',
         'total',
-        'sales',
         'physical',
                
     ];

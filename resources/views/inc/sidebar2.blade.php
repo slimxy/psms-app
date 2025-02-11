@@ -1,4 +1,4 @@
-<div class="sidebar  mb-4">
+<div class="sidebar  mb-5">
         <div class="sidebar_container">
           <div class="sidebar_item">
             <i class="fas fa-th-large" id="dash" onclick="tog()"></i>

@@ -43,6 +43,13 @@ class ManagerController extends Controller
 
     public function store(Request $request){
 
+        // To automatically cal DailySales, 
+        $request->validate([
+            'opening'=> 'required|numeric|min:0',
+            'closing'=> 'required|numeric|min:0|gte:open',
+            'stock'=> 'required|nemeric|min:0',
+            'product'=> 'required|nemeric|min:0',
+        ]);
         $submission = Submission::create();
 
     for($i = 0; $i < count($request->input('opening')) ;$i++){
@@ -59,6 +66,10 @@ class ManagerController extends Controller
             $manager->physical=request('physical')[$i];
             $manager->admin_id = Auth::id();
     
+        // Calculations
+        $manager->sales =$manager->closing - $manager->opening;
+
+
             $manager->save();
         }
 

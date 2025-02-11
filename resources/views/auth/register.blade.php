@@ -161,7 +161,7 @@ const stations = {
 "Kastina":["Along Yahaya Maidoki way","Along Daura Road","Along Kofar Kwaya Katsina"],
 "Kogi":["o","p"],
 "Lagos":["q","r"],
-"Plateau":["t","s"],
+"Plateau":["bauchi Road","Terminus"],
 "Taraba":["v","w"],
 "Yobe":["x","y"],
 "Zamfara":["z","za"]

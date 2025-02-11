@@ -73,7 +73,10 @@ class StaffController extends Controller
         //     'diffs'=>'required|numeric',
 
         // ]);
-
+        $request->validate([ 
+            'open' => 'required|numeric|min:0',
+            'close'=> 'required|numeric|min:' . $request->open,
+        ], ['close.min'=> 'Closing meter must be greater than or equal to Opening meter.']);
 
 
         $staff= new Staff();
@@ -82,14 +85,13 @@ class StaffController extends Controller
         $staff->type=request('type');
         $staff->meterId=request('meterId');
         $staff->diffs=request('diffs');
-        $staff->sales=request('sales');
         $staff->manager_id=Auth::id();
 
          $staff->save();
 
       
 
-        return redirect('/staffs/index')->with('mssg',"Thank you");
+        return redirect('/staffs/index')->with('success',"Staff entry added successfully. Thank you");
      }
 
     

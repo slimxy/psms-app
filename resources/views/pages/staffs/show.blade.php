@@ -20,7 +20,6 @@
             <th  class='col-1 p-2 bg-primary text-light' scope='col'>Opening Meter</th>
             <th  class='col-1 p-2 bg-primary text-light' scope='col'>Closing Meter</th>
             <th  class='col-1 p-2 bg-primary text-light' scope='col'>Sales</th>
-            <th  class='col-1 p-2 bg-primary text-light' scope='col'>Difference</th>
             <th  class='col-1 p-2 bg-primary text-light' scope='col'>Date</th>
             <th  class='col-1 p-2 bg-primary text-light' scope='col'> Time </th>
 
@@ -37,7 +36,6 @@
             <td  class='col-1 px-2'>{{$staff->type}}</td>
             <td  class='col-1 px-2'>{{$staff->open}}</td>
             <td  class='col-1 px-2'>{{$staff->close}}</td>
-            <td  class='col-1 px-2'>{{$staff->sales}}</td>
             <td  class='col-1 px-2'>{{$staff->diffs}}</td>
             <td  class='col-1 px-2'>{{$staff->created_at->format('d-m-y')}}</td>
             <td  class='col-1 px-2'>{{$staff->updated_at->format('h:i:s')}}</td>

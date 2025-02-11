@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('type');
             $table->string('meterId');
             $table->string('diffs');
-            $table->string('sales');
             $table->timestamps();
         });
     }

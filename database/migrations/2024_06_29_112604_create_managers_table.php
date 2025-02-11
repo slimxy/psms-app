@@ -14,13 +14,14 @@ return new class extends Migration
         Schema::create('managers', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('submission_id');
-            $table->string('opening');
-            $table->string('closing');
-            $table->string('stock');
-            $table->string('product');
-            $table->string('total');
-            $table->string('sales');
-            $table->string('physical');
+            $table->integer('opening');
+            $table->integer('closing');
+            $table->integer('Return');
+            $table->integer('sales');
+            $table->integer('stock');
+            $table->integer('product');
+            $table->integer('total');
+            $table->integer('physical');
             
             $table->timestamps();
 

@@ -2,7 +2,6 @@
 @section("content")
 
 <div class="container m-4" >
-<marquee behavior="" direction="rtl"> <h3 class="text-secondary text-center ">{{Auth()->user()->station}},  {{Auth()->user()->state}} State.</h3> </marquee>
 
   <div class="info "><h3 class=" pb-3 offset-4 w-100 text-center text-primary">Showing record of Users Register by <span class="text-secondary">{{$manager->name}}</span></h3> </div>
   <table class="table table-bordered offset-4  table-responsive p-5 offset-1">
@@ -42,6 +41,8 @@
 {{ $users->links('pagination::default')}}
 
 </div>
+<marquee behavior="" direction="rtl"> <h3 class="text-secondary text-center ">{{Auth()->user()->station}},  {{Auth()->user()->state}} State.</h3> </marquee>
+
   </div>
   
   @endsection

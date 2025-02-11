@@ -18,11 +18,18 @@ class Staff extends Model
         'type',
         'meterId',
         'diffs',
-        'sales',
         'manager_id',
                
     ];
+        // To Automaticaally cal the sales value
 
+    public  static function boot(){
+        parent::boot();
+
+        static::saving(function ($staff) {
+            $staff->diffs = max(0, $staff->close - $staff->open);
+        });
+    }
     // for  showing activity of each user by a manager
 
     public function manager(){
