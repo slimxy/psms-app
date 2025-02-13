@@ -25,20 +25,20 @@
 </thead>
 </tr>
 
-<tbody>
+<tbody id='entries'>
     @for($i= 1; $i <= 9; $i++)
 
-<tr>
+<tr class="entry-row">
     <td class="text-align-center">{{$i}}</td>
     <td class="table-danger text-danger">
-    <input class="text-danger text-center  col-10 border-0" type="number" id='opening' name='opening[]' onInput='calValues()' required></td>
-    <td><input    class="col-10 text-center border-0 "type="number" id='closing' name='closing[]' onInput='calValues()' required ></td>
-    <td><input  class="col-7 text-center border-0 "type="number" id='tank' name='retrn_tank[]' onInput='calValues()'></td>
+    <input class="text-danger text-center  col-10 border-0" type="number" id='opening' name='opening[]' onInput='calValues(event)' required></td>
+    <td><input    class="col-10 text-center border-0 "type="number" id='closing' name='closing[]' onInput='calValues(event)' required ></td>
+    <td><input  class="col-7 text-center border-0 "type="number" id='tank' name='retrn_tank[]' onInput='calValues(event)'></td>
     <td><input  class="col-10 text-center border-0" type="number"  id='Daily_sales'  name='Daily_sales[]' readonly ></td>
-    <td><input  class="col-10 text-center border-0" type="number" id='stock' name='open_stock[]'onInput='calValues()' required></td>
-    <td><input  class="col-10 text-center border-0" type="number" id='product' name='product_Recieved[]' onInput='calValues()' ></td>
+    <td><input  class="col-10 text-center border-0" type="number" id='stock' name='open_stock[]'onInput='calValues(event)' required></td>
+    <td><input  class="col-10 text-center border-0" type="number" id='product' name='product_Recieved[]' onInput='calValues(event)' ></td>
     <td><input  class="col-10 text-center border-0" type="number" id='hand' name='total@Hand[]' readonly></td>
-    <td><input  class="col-10 text-center border-0" type="number" id='physical' name='physical_Stock[]' readonly onInput='calValues()'></td>
+    <td><input  class="col-10 text-center border-0" type="number" id='physical' name='physical_Stock[]' readonly onInput='calValues(event)'></td>
     </tr>
 @endfor
 </tbody>
@@ -49,41 +49,70 @@
 </div>
 </div>
 </form>
-
-</div>
-<marquee behavior="" direction="rtl"> <h3 class="text-secondary text-center ">{{Auth()->user()->state}}: {{Auth()->user()->station}}</h3> </marquee>
-</div>
 </div>
 
 <script>
-        function calValues(){
-            let open_meter = parseFloat(document.getElementById('opening').value) || 0;
-            let close_meter = parseFloat(document.getElementById('closing').value) || 0;
-            let tank = parseFloat(document.getElementById('tank').value) || 0;
-            let openStock = parseFloat(document.getElementById('stock').value) || 0;
-            let productRecieved = parseFloat(document.getElementById('product').value) || 0;
+//         function calValues(){
+//             let open_meter = parseFloat(document.getElementById('opening').value) || 0;
+//             let close_meter = parseFloat(document.getElementById('closing').value) || 0;
+//             let tank = parseFloat(document.getElementById('tank').value) || 0;
+//             let openStock = parseFloat(document.getElementById('stock').value) || 0;
+//             let productRecieved = parseFloat(document.getElementById('product').value) || 0;
+
+//             if(tank){
+//                 let d_sales =  close_meter - open_meter - tank;
+//                 document.getElementById('Daily_sales').value = d_sales;
+
+//                 let t_hand = openStock + productRecieved;
+//                 document.getElementById('hand').value = t_hand ;
+
+//                 let phyStock = t_hand - d_sales;
+//                 document.getElementById('physical').value = phyStock ;
+//             }
+//             else {
+            
+//                 let d_sales =  close_meter - open_meter;
+//                 document.getElementById('Daily_sales').value = d_sales;
+
+//                 let t_hand = openStock + productRecieved;
+//                 document.getElementById('hand').value = t_hand ;
+
+//                 let phyStock = t_hand - d_sales;
+//                 document.getElementById('physical').value = phyStock ;
+//     }
+// };
+
+function  calValues(event){
+            let row = event.target.closest('.entry-row') //To get the closest row of the input field
+            if(!row) return; //if no row then return.
+
+            let open_meter = parseFloat(row.querySelector('#opening').value) || 0;
+            let close_meter = parseFloat(row.querySelector('#closing').value) || 0;
+            let tank = parseFloat(row.querySelector('#tank').value) || 0;
+            let openStock = parseFloat(row.querySelector('#stock').value) || 0;
+            let productRecieved = parseFloat(row.querySelector('#product').value) || 0;
 
             if(tank){
                 let d_sales =  close_meter - open_meter - tank;
-                document.getElementById('Daily_sales').value = d_sales;
+                row.querySelector('#Daily_sales').value = d_sales;
 
                 let t_hand = openStock + productRecieved;
-                document.getElementById('hand').value = t_hand ;
+                row.querySelector('#hand').value = t_hand ;
 
                 let phyStock = t_hand - d_sales;
-                document.getElementById('physical').value = phyStock ;
+                row.querySelector('#physical').value = phyStock ;
             }
             else {
             
                 let d_sales =  close_meter - open_meter;
-                document.getElementById('Daily_sales').value = d_sales;
+                row.querySelector('#Daily_sales').value = d_sales;
 
                 let t_hand = openStock + productRecieved;
-                document.getElementById('hand').value = t_hand ;
+                row.querySelector('#hand').value = t_hand ;
 
                 let phyStock = t_hand - d_sales;
-                document.getElementById('physical').value = phyStock ;
+                row.querySelector('#physical').value = phyStock ;
     }
-};
+            }
 </script>
 @endsection
