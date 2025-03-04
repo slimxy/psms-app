@@ -13,7 +13,6 @@
         <th  class='col-1 text-primary' scope='col'>Opening Meter </th>
         <th  class='col-1 text-primary' scope='col'>Closing Meter </th>
         <th  class='col-1 text-primary' scope='col'>Sales </th>
-        <th  class='col-1 text-primary' scope='col'>Difference </th>
         <th  class='col-1 text-primary' scope='col'>Date </th>
     </tr>
   </thead>
@@ -25,7 +24,6 @@
     <td>{{$activity->type}}</td>
     <td>{{$activity->open}}</td>
     <td>{{$activity->close}}</td>
-    <td>{{$activity->sales}}</td>
     <td>{{$activity->diffs}}</td>
     <td>{{$activity->created_at->format('F-d-Y  g:s a') }}</td>
 </tr>
